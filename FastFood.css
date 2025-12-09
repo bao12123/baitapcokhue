@@ -1,0 +1,558 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #e67e22; /* Màu cam chính */
+      --primary-dark: #cf711f;
+      --primary-light: #fdf2e9;
+      --text-dark: #333;
+      --text-medium: #555;
+      --text-light: #777;
+      --white: #fff;
+      --gray-light: #f8f9fa;
+      --border-radius: 12px;
+      --box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --transition: all 0.3s ease;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      line-height: 1.6;
+      color: var(--text-medium);
+      background-color: var(--gray-light);
+      overflow-x: hidden;
+    }
+
+    /* Utilities */
+    .container {
+      max-width: 130rem;
+      margin: 0 auto;
+      padding: 0 3.2rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 4.8rem;
+    }
+
+    .grid--2-cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid--3-cols {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid--4-cols {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid--center-v {
+      align-items: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .mb-sm {
+      margin-bottom: 1.6rem;
+    }
+
+    .mb-md {
+      margin-bottom: 3.2rem;
+    }
+
+    .mb-lg {
+      margin-bottom: 4.8rem;
+    }
+
+    .mb-xl {
+      margin-bottom: 6.4rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1.2rem 2.4rem;
+      font-size: 1.8rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .btn--primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(230, 126, 34, 0.2);
+    }
+
+    /* Typography */
+    .heading-primary {
+      font-size: 5.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-dark);
+      margin-bottom: 3.2rem;
+    }
+
+    /* Đã chỉnh sửa: Tăng kích thước chữ cho .subheading */
+    .subheading {
+      display: block;
+      font-size: 2.8rem; /* Thay đổi từ 1.8rem để to hơn */
+      font-weight: 600;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.75px;
+      text-align: center;
+    }
+
+    /* Đã chỉnh sửa: Giảm kích thước chữ cho .heading-secondary */
+    .heading-secondary {
+      font-size: 3.6rem; /* Thay đổi từ 4.4rem để nhỏ hơn */
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 4.8rem;
+      color: var(--text-dark);
+      text-align: center;
+      position: relative;
+    }
+
+    .heading-secondary::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-color);
+      margin: 1.6rem auto 0;
+      border-radius: 2px;
+    }
+
+    .heading-tertiary {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 1.6rem;
+      color: var(--text-dark);
+    }
+
+    /* Đã chỉnh sửa: Căn lề đều cho văn bản và điều chỉnh lề dưới */
+    .text {
+      font-size: 1.8rem;
+      line-height: 1.8;
+      color: var(--text-medium);
+      margin-bottom: 2.4rem; /* Giữ khoảng cách giữa các đoạn */
+      text-align: justify; /* Căn lề đều hai bên */
+    }
+
+    .text-highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 1.6rem 0;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color); /* Logo color is already orange based on this CSS */
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo i {
+      font-size: 3.2rem;
+    }
+
+    .main-nav-list {
+      list-style: none;
+      display: flex;
+      gap: 3.2rem;
+    }
+
+    .main-nav-link:link, /* Màu sắc và nền đổi active giúp người dug biết đang ở mục nào  */
+    .main-nav-link:visited {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 1.8rem;
+      transition: var(--transition); /* Giữ transition có hiệu ứng mượt mà */
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .main-nav-link:hover,
+    .main-nav-link:active {
+      color: var(--primary-color);
+    }
+
+    .main-nav-link.active {
+      color: var(--primary-color);
+      background-color: var(--primary-light);
+    }
+
+    .main-nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    .main-nav-link:hover::after,
+    .main-nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .section-hero {
+      padding: 8rem 0;
+      background: linear-gradient(to right bottom, #fdf2e9, #f8f9fa);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 40rem;
+      height: 40rem;
+      border-radius: 50%;
+      background: linear-gradient(to right, rgba(230, 126, 34, 0.1), transparent);
+      z-index: 0;
+    }
+
+    /* Đã chỉnh sửa: Loại bỏ transform để cân đối hình ảnh */
+    .hero-img-box {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition); /* Giữ transition nếu có ý định thêm hiệu ứng khác */
+      z-index: 1;
+      max-width: 100%; /* Đảm bảo hình ảnh không vượt quá chiều rộng của khung */
+      margin: 0 auto; /* Căn giữa hình ảnh */ 
+      display: block; /* Đảm bảo khung hình ảnh là khối */
+    }
+
+    .hero-img {
+      width: 100%;
+      display: block;
+      height: auto; /* Đảm bảo chiều cao tự động để hình ảnh không bị méo */
+      object-fit: cover; /* Đảm bảo hình ảnh lấp đầy khung mà không bị méo */
+      transition: var(--transition);
+    }
+
+    /* Đã chỉnh sửa: Loại bỏ hover transform cho hình ảnh */
+    .hero-img-box:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Giữ hiệu ứng đổ bóng khi hover */
+    }
+
+    .hero-img-box:hover .hero-img {
+      transform: scale(1.05); /* Giữ hiệu ứng phóng to nhẹ khi hover nếu muốn */
+    }
+
+    /* About Section */
+    .section-about {
+      padding: 9.6rem 0;
+    }
+
+    .about-img-box {
+      position: relative;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .about-img {
+      width: 100%;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .about-img-box:hover .about-img {
+      transform: scale(1.05);
+    }
+
+    .about-content {
+      padding: 0 2.4rem;
+    }
+
+    /* Team Section */
+    .section-team {
+      padding: 9.6rem 0;
+      background-color: var(--primary-light);
+    }
+
+    .team-member {
+      text-align: center;
+      background-color: var(--white);
+      padding: 3.2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-member:hover {
+      transform: translateY(-1rem);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .team-img-box {
+      width: 16rem;
+      height: 16rem;
+      border-radius: 50%;
+      margin: 0 auto 2.4rem;
+      border: 6px solid var(--primary-light);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .team-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .team-member:hover .team-img {
+      transform: scale(1.1);
+    }
+
+    .team-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .team-position {
+      font-size: 1.6rem;
+      color: var(--primary-color);
+      margin-bottom: 1.6rem;
+      font-weight: 600;
+    }
+
+    /* Values Section */
+    .section-values {
+      padding: 9.6rem 0;
+    }
+
+    .value-box {
+      background-color: var(--white);
+      padding: 4rem 3.2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .value-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to right, var(--primary-light), transparent);
+      transition: var(--transition);
+      z-index: -1;
+    }
+
+    .value-box:hover::before {
+      height: 100%;
+    }
+
+    .value-box:hover {
+      transform: translateY(-1rem);
+    }
+
+    .value-icon-box {
+      width: 8rem;
+      height: 8rem;
+      background-color: var(--primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2.4rem;
+      transition: var(--transition);
+    }
+
+    .value-box:hover .value-icon-box {
+      background-color: var(--white);
+    }
+
+    .value-icon {
+      font-size: 3.6rem;
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    .footer {
+      background: linear-gradient(to right, #2c2c2c, #1a1a1a);
+      color: var(--white);
+      padding: 6.4rem 0;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4.8rem;
+    }
+
+    .footer-logo-box {
+      margin-bottom: 2.4rem;
+    }
+
+    .footer-logo {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary-color); /* Đã thay đổi: Logo footer có màu cam */
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-heading {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 2.4rem;
+      color: var(--white);
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .footer-heading::after {
+      content: ''; /* Tạo một đường gạch dưới cho tiêu đề */
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary-color); /* Đường gạch dưới có màu cam */
+      /* mục tiêu là tạo một đường gạch dưới cho tiêu đề footer  */
+    }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .footer-link:link,
+    .footer-link:visited {  /* Tạo liên kết footer với màu sắc và hiệu ứng hover */
+      text-decoration: none;
+      font-size: 1.6rem;
+      color: #ccc; /* Màu chữ liên kết footer là màu xám nhạt */
+      transition: var(--transition); /* Giữ transition để có hiệu ứng mượt mà */
+      display: inline-block;
+    }
+
+    .footer-link:hover
+    .footer-link:active {
+      color: var(--primary-color); /* Khi di chuột qua, màu chữ sẽ chuyển sang màu cam */
+      text-decoration: underline; /* Thêm gạch chân khi di chuột qua */
+      transform: translateX(5px); /* Hiệu ứng dịch chuyển nhẹ khi di chuột qua */
+    }
+
+    .social-links { /*Tạo ra một hàng ngang các icon mạng xã hội, có khoảng cách đều nhau*/
+      list-style: none; 
+      display: flex; 
+      gap: 2.4rem; 
+      margin-top: 2.4rem;
+    }
+
+    .social-link:link,
+    .social-link:visited {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4rem;
+      height: 4rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 1.8rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover, 
+    .social-link:active { 
+      background-color: var(--primary-color); /*  di chuột qua  màu chữ của liên kết sẽ chuyển thành màu
+       được định nghĩa bởi biến CSS primary color */
+      transform: translateY(-3px);
+    }
+
+    .contacts {
+      font-style: normal;
+      font-size: 1.6rem;
+      line-height: 1.6;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .contact-icon {
+      color: var(--primary-color);
+      font-size: 2rem;
+      margin-top: 0.4rem;
+    }
+
+    .copyright {
+      padding-top: 3.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 1.4rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 4.8rem;
+    }

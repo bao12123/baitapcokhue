@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực đơn - 1Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="menu.css"> 
+</head>
+<body>
+    <header class="header"> 
+        <a href="FastFood.html" class="logo"><i class="fas fa-utensils"></i> 1Food</a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="main-nav-link" href="FastFood.html">Trang chủ</a></li>
+                <li><a class="main-nav-link" href="about.html">Giới thiệu</a></li>
+                <li><a class="main-nav-link active" href="menu.html">Thực đơn</a></li> <!-- Thêm active class bên css-128 -->
+                <li><a class="main-nav-link" href="contact.html">Liên hệ</a></li>
+                <li><a class="main-nav-link nav-cta" href="order.html">Đặt món ngay</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-menu" id="menu">
+            <div class="container">
+                <span class="subheading">Thực đơn của chúng tôi</span>
+                <h2 class="heading-secondary">Khám phá các món ăn ngon tại 1Food</h2>
+
+                <!-- Category Filters (Bộ lọc danh mục) -->
+                <div class="menu-categories">
+                    <button class="category-btn active" data-category="all">Tất cả</button>
+                    <button class="category-btn" data-category="main-course">Món chính</button>
+                    <button class="category-btn" data-category="appetizer">Khai vị</button>
+                    <button class="category-btn" data-category="drink">Đồ uống</button>
+                </div>
+
+                <!-- Menu Items Grid (Lưới các món ăn) -->
+                <div class="menu-grid grid grid--3-cols">
+
+                    <!-- Main Courses (Món chính) -->
+                    <div class="menu-item" data-category="main-course">
+                        <img src="/bài/images/ảnh mục menu/Bún Bò Huế.jpg" alt="Bún Bò Huế" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Bún Bò Huế</h3>
+                            <p class="menu-item-description">Bún bò Huế đậm đà, thơm ngon chuẩn vị cố đô.</p>
+                            <p class="menu-item-price">65.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="bunbohue"  
+                                data-name="Bún Bò Huế"
+                                data-price="65000"
+                                data-description="Bún bò Huế đậm đà, thơm ngon chuẩn vị cố đô, với sợi bún to, thịt bò thái lát, chả cua và nước dùng hầm xương đậm đà. Món ăn này là sự kết hợp hoàn hảo giữa vị cay nồng của ớt, hương sả thơm lừng và vị béo ngậy của thịt bò, mang đến một trải nghiệm ẩm thực khó quên."
+                                data-image="/bài/images/ảnh mục menu/Bún Bò Huế.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="main-course">
+                        <img src="/bài/images/ảnh mục menu/Cơm Tấm Sườn Trứng.jpg" alt="Cơm Tấm Sườn Trứng" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Cơm Tấm Sườn Trứng</h3>
+                            <p class="menu-item-description">Cơm tấm sườn nướng thơm lừng, ăn kèm bì chả và trứng lòng đào.</p>
+                            <p class="menu-item-price">60.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="comtamsuon"
+                                data-name="Cơm Tấm Sườn"
+                                data-price="60000"
+                                data-description="Cơm tấm sườn nướng thơm lừng, ăn kèm bì chả, trứng lòng đào, dưa chuột và nước mắm chua ngọt đặc trưng. Hạt cơm tấm tơi xốp, miếng sườn nướng đậm đà, tạo nên một bữa ăn đầy đủ dinh dưỡng và hương vị truyền thống của Sài Gòn."
+                                data-image="/bài/images/ảnh mục menu/Cơm Tấm Sườn Trứng.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="main-course">
+                        <img src="/bài/images/ảnh mục menu/Phở Gà.jpg" alt="Phở Gà" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Phở Gà</h3>
+                            <p class="menu-item-description">Phở gà truyền thống, nước dùng thanh ngọt.</p>
+                            <p class="menu-item-price">55.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="phoga"
+                                data-name="Phở Gà"
+                                data-price="55000"
+                                data-description="Phở gà truyền thống, nước dùng thanh ngọt hầm từ xương gà, thịt gà xé phay mềm, bánh phở dai ngon. Thêm chút rau thơm, hành lá và chanh ớt để tăng thêm hương vị. Một tô phở ấm nóng là lựa chọn tuyệt vời cho bữa sáng hoặc bất kỳ lúc nào trong ngày."
+                                data-image="/bài/images/ảnh mục menu/Phở Gà.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <!-- Appetizers (Khai vị) -->
+                    <div class="menu-item" data-category="appetizer">
+                        <img src="/bài/images/ảnh mục menu/Nem Rán.jpg" alt="Nem Rán" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Nem Rán</h3>
+                            <p class="menu-item-description">Nem rán giòn rụm, vàng ươm, thơm lừng.</p>
+                            <p class="menu-item-price">40.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="nemran"
+                                data-name="Nem Rán"
+                                data-price="40000"
+                                data-description="Nem rán (chả giò) giòn rụm, vàng ươm, nhân thịt băm, mộc nhĩ, miến và rau củ tươi ngon. Món khai vị này thường được ăn kèm với nước chấm chua ngọt, rau sống và bún, mang lại hương vị đậm đà và hấp dẫn."
+                                data-image="/bài/images/ảnh mục menu/Nem Rán.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="appetizer">
+                        <img src="/bài/images/ảnh mục menu/Gỏi Cuốn.jpg" alt="Gỏi Cuốn" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Gỏi Cuốn</h3>
+                            <p class="menu-item-description">Gỏi cuốn tôm thịt, rau tươi, chấm nước mắm chua ngọt.</p>
+                            <p class="menu-item-price">35.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="goicuon"
+                                data-name="Gỏi Cuốn"
+                                data-price="35000"
+                                data-description="Gỏi cuốn thanh mát với tôm tươi, thịt luộc, bún tươi và các loại rau sống cuộn trong bánh tráng mỏng. Món ăn này rất phù hợp cho những ai muốn thưởng thức hương vị nhẹ nhàng, lành mạnh, thường được chấm với tương đen hoặc nước mắm chua ngọt."
+                                data-image="/images/ảnh mục menu/Gỏi Cuốn.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="appetizer">
+                        <img src="/bài/images/ảnh mục menu/Bánh Căn.jpg" alt="Bánh Căn" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Bánh Căn</h3>
+                            <p class="menu-item-description">Bánh căn thường được ăn kèm với rau sống, xoài xanh, khế chua và nước chấm chua ngọt. </p>
+                            <p class="menu-item-price">50.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="banhcan"
+                                data-name="Bánh Căn"
+                                data-price="50000"
+                                data-description="Bánh căn nóng hổi, giòn tan với nhân tôm, mực hoặc thịt băm, trứng cút. Món ăn này được làm từ bột gạo, nướng trên khuôn đất nung, ăn kèm với rau sống, xoài xanh, khế chua và chén nước chấm chua ngọt đặc trưng của miền Trung."
+                                data-image="/images/ảnh mục menu/Bánh Căn.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="appetizer">
+                        <img src="/bài/images/ảnh mục menu/Bánh Xèo.jpg" alt="Bánh Xèo" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Bánh Xèo</h3>
+                            <p class="menu-item-description">Bánh xèo giòn rụm, nhân tôm thịt, ăn kèm rau sống.</p>
+                            <p class="menu-item-price">45.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="banhxeo"
+                                data-name="Bánh Xèo"
+                                data-price="45000"
+                                data-description="Bánh xèo miền Tây với lớp vỏ bột gạo giòn tan, màu vàng óng, nhân đầy đặn tôm, thịt heo, giá đỗ và hành lá. Thường được ăn kèm với rau sống tươi ngon và nước mắm chua ngọt. Hương vị đậm đà, béo ngậy của bánh xèo chắc chắn sẽ làm hài lòng bạn."
+                                data-image="/bài/images/ảnh mục menu/Bánh Xèo.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="appetizer">
+                        <img src="/bài/images/ảnh mục menu/Bánh Mỳ Thịt Nướng.jpg" alt="Bánh Mì Thịt Nướng" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Bánh Mì Thịt Nướng</h3>
+                            <p class="menu-item-description">Bánh mì thịt nướng thơm ngon, giòn rụm.</p>
+                            <p class="menu-item-price">30.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="banhmithitnuong"
+                                data-name="Bánh Mì Thịt Nướng"
+                                data-price="30000"
+                                data-description="Bánh mì thịt nướng là một món ăn đường phố phổ biến với bánh mì giòn tan, nhân thịt nướng đậm đà, pate, rau sống, dưa chuột, cà rốt muối chua và chút ớt. Sự kết hợp hoàn hảo giữa các hương vị tạo nên một bữa ăn nhanh gọn nhưng đầy đủ."
+                                data-image="/bài/images/ảnh mục menu/Bánh Mỳ Thịt Nướng.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                    <!-- Drinks (Đồ uống) -->
+                    <div class="menu-item" data-category="drink">
+                        <img src="/bài/images/ảnh mục menu/Trà ổi.jpg" alt="Trà Ổi" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Trà Ổi</h3>
+                            <p class="menu-item-description">Trà Ổi mát lạnh, sảng khoái.</p>
+                            <p class="menu-item-price">25.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="traoi"
+                                data-name="Trà Ổi"
+                                data-price="25000"
+                                data-description="Trà ổi tươi mát, giải khát hiệu quả, với hương thơm dịu nhẹ của ổi và vị ngọt thanh tự nhiên. Thức uống này không chỉ ngon mà còn giúp bổ sung vitamin, lý tưởng cho những ngày nắng nóng."
+                                data-image="/bài/images/ảnh mục menu/Trà ổi.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="menu-item" data-category="drink">
+                        <img src="/bài/images/ảnh mục menu/Nước Cam.jpg" alt="Nước Cam" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Nước Cam Ép</h3>
+                            <p class="menu-item-description">Nước cam tươi 100%, ép nguyên chất.</p>
+                            <p class="menu-item-price">30.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="nuoccam"
+                                data-name="Nước Cam Ép"
+                                data-price="30000"
+                                data-description="Nước cam tươi 100%, ép nguyên chất, giàu vitamin C, giúp tăng cường sức đề kháng. Vị chua ngọt tự nhiên của cam mang lại cảm giác sảng khoái, là thức uống bổ dưỡng và tốt cho sức khỏe."
+                                data-image="/bài/images/ảnh mục menu/Nước Cam.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                <div class="menu-item" data-category="drink">
+                        <img src="/bài/images/ảnh mục menu/Nước Dừa.jpg" alt="Nước Dừa" class="menu-item-img">
+                        <div class="menu-item-content">
+                            <h3 class="menu-item-title">Nước Dừa Tươi</h3>
+                            <p class="menu-item-description">Nước dừa tươi mát, bổ dưỡng.</p>
+                            <p class="menu-item-price">20.000đ</p>
+                            <button class="btn btn--small add-to-cart-btn"
+                                data-id="nuocdua"
+                                data-name="Nước Dừa Tươi"
+                                data-price="20000"
+                                data-description="Nước dừa tươi mát lạnh, thanh khiết, giải khát tức thì. Nước dừa chứa nhiều khoáng chất thiết yếu, giúp bù nước và điện giải cho cơ thể. Một lựa chọn hoàn hảo cho những ai yêu thích hương vị tự nhiên và muốn giữ gìn sức khỏe."
+                                data-image="/bài/images/ảnh mục menu/Nước Dừa.jpg"
+                                >Thêm vào giỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <a href="FastFood.html" class="logo" style="color: #e67e22;"><i class="fas fa-utensils"></i> 1Food</a>
+                <p>Mang đến những trải nghiệm ẩm thực tuyệt vời nhất cho khách hàng với phương châm "Nhanh - Ngon - Chuẩn vị".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="FastFood.html">Trang chủ</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                    <li><a href="menu.html">Thực đơn</a></li>
+                    <li><a href="order.html">Đặt món</a></li>
+                    <li><a href="#">Chính sách</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Hỗ trợ</h3>
+                <ul>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách thanh toán</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Liên hệ</h3>
+                <p>123 Đường ABC, Quận 1, TP.HCM</p>
+                <p>0123 456 789</p>
+                <p><a href="mailto:info@1food.vn">info@1food.vn</a></p>
+                <p>Thứ Hai - Chủ Nhật: 8:00 - 22:00</p>
+            </div>
+            <p style="grid-column: 1 / -1; text-align: center;">© 2023 1Food. All rights reserved.</p>
+        </div>
+    </footer>
+
+   <!-- Modal tùy chỉnh cho các tin nhắn chung -->
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="hideModal()">×</button>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <div id="modal-message" class="modal-message"></div>
+            <div class="loading-spinner" id="modal-spinner"></div>
+        </div>
+    </div>
+
+    <!-- New Item Detail Modal -->
+    <div id="item-detail-modal-overlay" class="modal-overlay">
+        <div class="modal-content item-detail-modal-content"> 
+            <button class="modal-close-btn" onclick="hideItemDetailModal()">×</button>
+            <div class="item-detail-container">
+                <img id="detail-item-img" src="" alt="Item Image" class="item-detail-img">
+                <div class="item-detail-info">
+                    <h3 id="detail-item-title" class="item-detail-title"></h3>
+                    <p id="detail-item-price" class="item-detail-price"></p>
+                    <p id="detail-item-description" class="item-detail-description"></p>
+                    
+                    <!--Điều chỉnh số lượng     -->
+                    <div class="quantity-control">
+                        <button class="quantity-btn" id="decrease-quantity">-</button>
+                        <input type="number" id="item-quantity" value="1" min="1" class="quantity-input">
+                        <button class="quantity-btn" id="increase-quantity">+</button>
+                    </div>
+
+                    <div class="item-detail-reviews">
+                        <h4>Đánh giá khách hàng:</h4>
+                        <div id="detail-item-reviews-list" class="reviews-list">
+                            <!-- Reviews will be loaded here by JS -->
+                        </div>
+                    </div>
+                    <button id="add-to-cart-from-detail-btn" class="btn btn--full">Thêm vào giỏ hàng</button>
+                    <!-- nút order -->
+                    <button id="order-from-detail-btn" class="btn btn--full order-now-btn">Đặt hàng ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="menu.js"></script>
+</body>
+</html>

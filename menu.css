@@ -1,0 +1,702 @@
+/* CSS chung từ các tệp khác để đảm bảo tính nhất quán */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth; /*smooth scroll là cuộn trang  làm cho hành vi cuộn của trình duyệt trở nên mượt mà 
+    hơn khi bạn nhảy đến một id trên cùng một trang. */
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    color: #555;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+}
+
+.grid {
+    display: grid;
+    column-gap: 6.4rem;
+    row-gap: 9.6rem;
+    justify-items: center;
+}
+
+.grid--2-cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols { /* Thêm grid 3 cột cho menu items */
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Đã chỉnh sửa: Tăng kích thước chữ cho .subheading */
+.subheading {
+    display: block;
+    font-size: 2.8rem; /* Thay đổi từ 1.8rem để to hơn */
+    font-weight: 500;
+    color: #e67e22;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    letter-spacing: 0.75px;
+    text-align: center;
+}
+
+/* Đã chỉnh sửa: Giảm kích thước chữ cho .heading-secondary */
+.heading-secondary {
+    font-size: 3.6rem; /* Thay đổi từ 4.8rem để nhỏ hơn */
+    line-height: 1.2;
+    margin-bottom: 9.6rem;
+    letter-spacing: -0.5px;
+    color: #333;
+    text-align: center;
+}
+
+.heading-tertiary {
+    font-size: 2.6rem;
+    color: #333;
+    margin-bottom: 1.6rem;
+}
+/* Header*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    height: 9.6rem;
+    padding: 0 4.8rem;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Thêm box-shadow cho header */
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e67e22; /* Màu cam cho logo */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo i {
+    font-size: 3.2rem;
+}
+
+.main-nav-list {
+    list-style: none;
+    display: flex;
+    gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 2rem;
+    transition: all 0.3s; /* Áp dụng cho tất cả các thay đổi trong 0.3 giây một cách nhẹ nhàng */
+    /*o	Thuộc tính transition được sử dụng rộng rãi để tạo hiệu ứng chuyển động mượt mà cho các thay đổi thuộc tính CSS 
+    (ví dụ: color, background-color, transform, box-shadow). all 0.3s ease có nghĩa là tất cả các thuộc tính sẽ thay đổi trong 0.3 giây với tốc độ
+     tăng dần rồi giảm dần.*/
+    padding: 1rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active { 
+    color: #e67e22;
+    border-bottom: 2px solid #e67e22; /* Đường gạch chân màu cam khi hover hoặc active */
+    /* border-bottom: là thuộc tính CSS dùng để tạo đường gạch chân dưới chữ,
+    trong trường hợp này là màu cam (#e67e22) khi người dùng di chuột qua hoặc nhấn vào liên kết. */
+}
+
+.main-nav-link.active { /* Class active cho trang hiện tại */
+    color: #e67e22;
+    border-bottom: 2px solid #e67e22; /* Đường gạch chân màu cam */
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+    padding: 1.2rem 2.4rem;
+    border-radius: 9px;
+    color: #fff;
+    background-color: #e67e22;
+    border-bottom: none;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+    background-color: #cf711f;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 1.6rem 3.2rem;
+    border-radius: 9px;
+    transition: all 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.btn--full {
+    background-color: #e67e22;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn--full:hover,
+.btn--full:active {
+    background-color: #cf711f;
+    transform: translateY(-2px);
+}
+
+.btn--small { /* Button nhỏ cho "Thêm vào giỏ" */
+    padding: 0.8rem 1.6rem;
+    font-size: 1.6rem;
+    background-color: #e67e22;
+    color: #fff;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block; /* Để nút chiếm toàn bộ chiều rộng có thể */
+    width: 1    00%; /* Để nút chiếm toàn bộ chiều rộng có thể */
+    margin-top: 1.6rem; /* Khoảng cách từ giá */
+}
+
+.btn--small:hover {
+    background-color: #cf711f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Phần thực đơn */
+.section-menu {
+    padding: 4.8rem 0 9.6rem 0; /* Khoảng cách trên dưới */
+}
+
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 2.4rem;
+    margin-bottom: 6.4rem;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.category-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 9px;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category-btn:hover { /* Hiệu ứng hover cho nút danh mục */
+    /* Khi người dùng di chuột qua nút danh mục, màu nền sẽ thay đổi*/
+    background-color: #e67e22; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+    border-color: #e67e22; /* Đổi màu viền khi hover */
+    transform: translateY(-2px); /* Hiệu ứng nâng lên khi hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Thêm bóng đổ khi hover */
+    
+    /* box-shadow là thuộc tính CSS dùng để tạo hiệu ứng bóng đổ cho phần tử,
+    trong trường hợp này là bóng đổ nhẹ khi người dùng di chuột qua nút. */
+}
+
+.category-btn.active {  /* nút đang được chọn */
+    background-color: #e67e22;
+    color: #fff;
+    border-color: #e67e22;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.menu-grid {
+    column-gap: 3.2rem; /* Giảm khoảng cách cột */
+    row-gap: 4.8rem; /* Giảm khoảng cách hàng */
+}
+/* Menu Item */
+.menu-item {
+    background-color: #fff;
+    border-radius: 11px;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+    transition: all 0.3s ease; /* Tbảo đảm hiệu ứng chuyển động mượt */
+    display: flex;
+    flex-direction: column; /* Sắp xếp nội dung theo cột */
+    height: 100%; /* Đảm bảo chiều cao đồng đều cho các item */
+}
+/* Hiệu ứng hover cho menu item */
+.menu-item:hover {
+    transform: translateY(-1rem); /* Nâng lên khi hover */
+    box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.1); /* bóng đổ đậm hơn */
+}
+
+.menu-item-img { 
+    width: 100%;
+    height: 20rem; /* Chiều cao cố định cho ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    display: block; /* Đảm bảo ảnh là block để không có khoảng trắng bên dưới */
+    border-bottom: 1px solid #ddd; /* Thêm đường viền dưới ảnh */
+}
+
+.menu-item-content {
+    padding: 2.4rem;
+    flex-grow: 1; /* Cho phép nội dung co giãn lấp đầy không gian */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Đẩy nút xuống dưới cùng */
+}
+
+.menu-item-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.2rem;
+}
+
+.menu-item-description {
+    font-size: 1.6rem;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 1.6rem;
+    flex-grow: 1; /* Cho phép mô tả co giãn */
+}
+
+.menu-item-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e67e22;
+    text-align: right; /* Căn phải giá */
+    margin-top: auto; /* Đẩy giá xuống phía dưới cùng của phần nội dung */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 4.8rem 0;
+    margin-top: 4.8rem; /* Khoảng cách từ phần nội dung chính */
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 6.4rem;
+}
+
+footer h3 {
+    font-size: 2.4rem;
+    margin-bottom: 2.4rem;
+    color: #fff;
+}
+
+footer p,
+footer a {
+    font-size: 1.6rem;
+    color: #ddd;
+    margin-bottom: 1.2rem;
+}
+
+    footer a:hover {
+        color: #e67e22;
+    }
+
+footer ul {
+    list-style: none;
+}
+
+footer ul li {
+    margin-bottom: 1.2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.6rem;
+    margin-top: 1.6rem;
+}
+
+.social-links a {
+    font-size: 2.4rem;
+    color: #fff;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #555;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.social-links a:hover { /* Hiệu ứng hover cho các liên kết mạng xã hội */
+    background-color: #e67e22;
+}
+
+/* Modal Styles  */
+.modal-overlay { 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s; /* Hiệu ứng mờ dần */
+    /* visibility: ẩn modal khi không hiển thị */
+    
+}
+
+.modal-overlay.show {
+    visibility: visible; /* Hiển thị modal khi có class show */
+    opacity: 1; /* Đặt độ mờ thành 1 khi hiển thị */
+    transition: visibility 0s, opacity 0.3s; /* Hiệu ứng mờ dần */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 11px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 50rem;
+    width: 90%;
+    position: relative;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.modal-title {
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #e67e22;
+}
+
+.modal-message {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #e67e22;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Item Detail Modal Specific Styles */
+.item-detail-modal-content {
+    max-width: 32rem; /* Đã giảm kích thước modal cho chi tiết sản phẩm */
+    padding: 2rem; /* Giảm padding */
+}
+
+.item-detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem; /* Giảm khoảng cách giữa các phần tử */
+    align-items: center;
+}
+
+.item-detail-img {
+    width: 100%;
+    max-width: 25rem; /* Đã tăng kích thước tối đa cho ảnh */
+    height: 18rem; /* Đã tăng chiều cao cố định cho ảnh */
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.item-detail-info {
+    flex-grow: 1;
+    min-width: 20rem; /* Đảm bảo không quá nhỏ */
+    text-align: center;
+}
+
+.item-detail-title {
+    font-size: 2.4rem; /* Giảm kích thước tiêu đề */
+    font-weight: 700;
+    color: #e67e22;
+    margin-bottom: 0.7rem;
+}
+
+.item-detail-price {
+    font-size: 2rem; /* Giảm kích thước giá */
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.9rem;
+}
+
+.item-detail-description {
+    font-size: 1.4rem; /* Giảm kích thước mô tả */
+    color: #555;
+    line-height: 1.3;
+    margin-bottom: 1.4rem;
+}
+
+.item-detail-reviews h4 {
+    font-size: 1.6rem; /* Giảm kích thước heading đánh giá */
+    color: #333;
+    margin-bottom: 0.7rem;
+}
+
+.reviews-list {
+    max-height: 9rem; /* Giảm giới hạn chiều cao cho danh sách đánh giá */
+    overflow-y: auto;
+    padding-right: 0.7rem;
+    margin-bottom: 1.4rem;
+    text-align: left;
+}
+
+.review-item {
+    background-color: #f9f9f9;
+    border-left: 3px solid #e67e22;
+    padding: 0.6rem 0.9rem;
+    margin-bottom: 0.6rem;
+    border-radius: 4px;
+}
+
+.review-author {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.review-text {
+    font-size: 1.3rem;
+    color: #666;
+    line-height: 1.2;
+}
+
+/* Kiểu kiểm soát số lượng */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem; /* Giảm khoảng cách */
+    margin-bottom: 1.4rem;
+    justify-content: center;
+}
+
+.quantity-btn {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 2.8rem; /* Giảm kích thước nút */
+    height: 2.8rem; /* Giảm kích thước nút */
+    font-size: 1.5rem; /* Giảm kích thước font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: #cf711f;
+}
+
+.quantity-input {
+    width: 3.5rem; /* Giảm chiều rộng input */
+    padding: 0.4rem; /* Giảm padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.4rem; /* Giảm kích thước font */
+    -moz-appearance: textfield; /* Ẩn mũi tên trong Firefox */
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Nút đặt hàng ngay*/
+.order-now-btn {
+    background-color: #f39c12; /* Màu cam khác để phân biệt */
+    margin-top: 0.8rem; /* Giảm khoảng cách từ nút "Thêm vào giỏ hàng" */
+    width: 100%;
+    padding: 1rem 2.2rem; /* Điều chỉnh padding */
+    font-size: 1.6rem; /* Điều chỉnh font size */
+}
+
+.order-now-btn:hover {
+    background-color: #e67e22; /* Màu cam đậm hơn khi hover */
+}
+
+
+/* Responsive đáp ứng */
+@media (max-width: 992px) { /* Tablets và màn hình nhỏ hơn */
+    .grid--3-cols {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột */
+    }
+    .menu-categories {
+        gap: 1.6rem;
+        margin-bottom: 4.8rem;
+    }
+    .item-detail-container {
+        flex-direction: column; /* Xếp chồng ảnh và thông tin trên tablet */
+        align-items: center;
+        text-align: center;
+    }
+    .item-detail-img {
+        max-width: 80%; /* Điều chỉnh kích thước ảnh */
+        height: auto;
+    }
+    .item-detail-info {
+        min-width: auto;
+        width: 100%;
+    }
+    .item-detail-title,
+    .item-detail-price,
+    .item-detail-description {
+        text-align: center;
+    }
+    .quantity-control {
+        justify-content: center; /* Căn giữa điều khiển số lượng */
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 56.25%;
+    }
+    .grid--2-cols {
+        grid-template-columns: 1fr;
+    }
+    .header {
+        padding: 0 2.4rem;
+    }
+    footer .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .social-links {
+        justify-content: center;
+    }
+    .heading-secondary {
+        font-size: 3.2rem;
+        margin-bottom: 6.4rem;
+    }
+    .menu-grid {
+        column-gap: 2.4rem;
+        row-gap: 3.2rem;
+    }
+    .menu-item-img {
+        height: 18rem;
+    }
+    .item-detail-modal-content {
+        width: 95%; /* Chiếm nhiều không gian hơn trên màn hình nhỏ */
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem;
+    }
+    .main-nav-list {
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    .grid--3-cols {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+    .heading-secondary {
+        font-size: 2.8rem;
+        margin-bottom: 4.8rem;
+    }
+    .menu-categories {
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-bottom: 3.2rem;
+    }
+    .category-btn {
+        width: 100%;
+    }
+    .menu-item-img {
+        height: 20rem; /* Tăng chiều cao ảnh trên mobile để dễ nhìn hơn */
+    }
+    .item-detail-title {
+        font-size: 2rem; /* Giảm thêm trên mobile */
+    }
+    .item-detail-price {
+        font-size: 1.6rem; /* Giảm thêm trên mobile */
+    }
+    .item-detail-description {
+        font-size: 1.2rem; /* Giảm thêm trên mobile */
+    }
+    .item-detail-reviews h4 {
+        font-size: 1.4rem; /* Giảm thêm trên mobile */
+    }
+    .review-item {
+        padding: 0.4rem 0.7rem;
+    }
+    .review-author, .review-text {
+        font-size: 1.2rem;
+    }
+    .quantity-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.4rem;
+    }
+    .quantity-input {
+        width: 3rem;
+        font-size: 1.3rem;
+    }
+    .order-now-btn,
+    .btn--full {
+        padding: 1rem 1.8rem;
+        font-size: 1.4rem;
+    }
+}

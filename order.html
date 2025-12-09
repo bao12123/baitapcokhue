@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt món - 1Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="order.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <header class="header">
+        <a href="FastFood.html" class="logo"><i class="fas fa-utensils"></i> 1Food</a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="main-nav-link" href="FastFood.html">Trang chủ</a></li>
+                <li><a class="main-nav-link" href="about.html">Giới thiệu</a></li>
+                <li><a class="main-nav-link" href="menu.html">Thực đơn</a></li>
+                <li><a class="main-nav-link" href="contact.html">Liên hệ</a></li>
+                <li><a class="main-nav-link nav-cta active" href="order.html">Đặt món ngay</a></li> <!-- Thêm active class -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="order-section">
+            <div class="container">
+                <span class="subheading">Đặt món</span>
+                <h2 class="heading-secondary">Hoàn tất đơn hàng của bạn</h2>
+
+                <div class="grid grid--2-cols">
+                    <div>
+                        <div class="order-summary">
+                            <h3 class="heading-tertiary">Tóm tắt đơn hàng</h3>
+                            <div id="order-items-list">
+                                <!-- Các món hàng sẽ được thêm vào đây bằng JavaScript -->
+                                <!-- Dữ liệu mẫu sẽ được thay thế bởi localStorage -->
+                                <div class="order-item">
+                                    <span>Giỏ hàng trống</span>
+                                    <span>0đ</span>
+                                </div>
+                            </div>
+                            <p id="order-subtotal" class="order-total">Tổng phụ: 0đ</p>
+                            <p id="order-shipping" class="order-total">Phí giao hàng: 15,000đ</p>
+                            <p id="order-grand-total" class="order-total">Tổng cộng: 15,000đ</p>
+                        </div>
+
+                        <div class="customer-info">
+                            <h3 class="heading-tertiary">Thông tin giao hàng</h3>
+                            <form id="customer-form">
+                                <div class="form-group">
+                                    <label for="customer-name">Họ và tên</label>
+                                    <input type="text" id="customer-name" placeholder="Nhập họ và tên của bạn" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-phone">Số điện thoại</label>
+                                    <input type="tel" id="customer-phone" placeholder="Nhập số điện thoại" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-address">Địa chỉ</label>
+                                    <textarea id="customer-address" placeholder="Nhập địa chỉ của bạn" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-note">Ghi chú (tùy chọn)</label>
+                                    <textarea id="customer-note" placeholder="Ví dụ: Không hành, ít cay..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="payment-info">
+                            <h3 class="heading-tertiary">Phương thức thanh toán</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method" data-method="cod" onclick="selectPaymentMethod('cod')">
+                                    <img src="https://placehold.co/80x50/e67e22/ffffff?text=COD" alt="Thanh toán khi nhận hàng">
+                                    <p>Thanh toán khi nhận hàng</p>
+                                </div>
+                                <div class="payment-method" data-method="momo" onclick="selectPaymentMethod('momo')">
+                                    <img src="https://placehold.co/80x50/a30b7a/ffffff?text=Momo" alt="Momo">
+                                    <p>Momo</p>
+                                </div>
+                                <div class="payment-method" data-method="bank" onclick="selectPaymentMethod('bank')">
+                                    <img src="https://placehold.co/80x50/2d5986/ffffff?text=Bank" alt="Chuyển khoản ngân hàng">
+                                    <p>Chuyển khoản ngân hàng</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 1.6rem; color: #777; margin-top: 2rem;">Vui lòng chọn một phương thức thanh toán.</p>
+                            <input type="hidden" id="selected-payment-method" value="">
+                        </div>
+
+                        <button type="button" class="btn btn--full place-order-btn" onclick="placeOrder()">Đặt hàng ngay</button>
+                    </div>
+                </div>
+                <div id="user-id-display" style="font-size: 1.4rem; text-align: center; margin-top: 2rem; color: #777;"></div>
+                <!-- Debug element to show raw cart data -->
+                <div id="debug-cart-raw" style="font-size: 1.2rem; text-align: center; margin-top: 1rem; color: #999;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <!-- Logo ở footer cũng là thẻ <a> và có màu trắng -->
+                <a href="FastFood.html" class="logo" style="color: #fff;"><i class="fas fa-utensils"></i> 1Food</a>
+                <p>Mang đến những trải nghiệm ẩm thực tuyệt vời nhất cho khách hàng với phương châm "Nhanh - Ngon - Chuẩn vị".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="FastFood.html">Trang chủ</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                    <li><a href="menu.html">Thực đơn</a></li>
+                    <li><a href="order.html">Đặt món</a></li>
+                    <li><a href="#">Chính sách</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Hỗ trợ</h3>
+                <ul>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách thanh toán</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Liên hệ</h3>
+                <p>123 Đường ABC, Quận 1, TP.HCM</p>
+                <p>0123 456 789</p>
+                <p><a href="mailto:info@1food.vn">info@1food.vn</a></p>
+                <p>Thứ Hai - Chủ Nhật: 8:00 - 22:00</p>
+            </div>
+            <p style="grid-column: 1 / -1; text-align: center;">© 2023 1Food. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal for messages -->
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="hideModal()">×</button>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <div id="modal-message" class="modal-message"></div>
+            <div class="loading-spinner" id="modal-spinner"></div>
+        </div>
+    </div>
+
+    <script type="module" src="order.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>

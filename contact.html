@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - 1Food</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <header class="header">
+        <!-- Ensure logo is an <a> tag and is orange -->
+        <a href="FastFood.html" class="logo"><i class="fas fa-utensils"></i> 1Food</a>
+        <nav class="main-nav">
+            <ul class="main-nav-list">
+                <li><a class="main-nav-link" href="FastFood.html">Trang chủ</a></li>
+                <li><a class="main-nav-link" href="about.html">Giới thiệu</a></li>
+                <li><a class="main-nav-link" href="menu.html">Thực đơn</a></li>
+                <li><a class="main-nav-link active" href="contact.html">Liên hệ</a></li> <!-- Add active class -->
+                <li><a class="main-nav-link nav-cta" href="order.html">Đặt món ngay</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-contact" id="contact">
+            <div class="container">
+                <span class="subheading"></span>
+                <br>
+                <h2 class="heading-secondary">Kết nối với 1Food</h2>
+                <div class="grid grid--2-cols">
+                    <div>
+                        <h3 class="heading-tertiary">Thông tin liên hệ</h3>
+                        <div class="contact-info">
+                            <p><strong>Địa chỉ:</strong> 99 Tô Hiến Thành , Quận Sơn Trà , Thành Phố Đà Nẵng</p>
+                            <p><strong>Điện thoại:</strong> 0795-532-041</p>
+                            <p><strong>Email:</strong> info@1food.vn</p>
+                            <p><strong>Giờ mở cửa:</strong> Thứ Hai - Chủ Nhật: 8:00 - 22:00</p>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.1214070741835!2d108.24093447416865!3d16.059188484618844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177ed575157d%3A0xa54585cda5d67ac7!2zOTkgVMO0IEhp4bq_biBUaMOgbmgsIFBoxrDhu5tjIE3hu7ksIFPGoW4gVHLDoCwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s4v1749200109156!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="heading-tertiary">Gửi tin nhắn cho chúng tôi</h3>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Họ và tên</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Nhập họ và tên" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email</label>
+                                <input type="email" id="contact-email" name="email" placeholder="Nhập email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Tin nhắn</label>
+                                <textarea id="contact-message" name="message" placeholder="Nhập tin nhắn của bạn" required></textarea>
+                            </div>
+                            <button type="button" class="btn btn--full" onclick="submitContactForm()">Gửi tin nhắn</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div>
+                <!-- Footer logo is also an <a> tag and is orange -->
+                <a href="FastFood.html" class="logo" style="color: #e67e22;"><i class="fas fa-utensils"></i> 1Food</a> <!-- Changed: Inline style to ensure orange color -->
+                <p>Mang đến những trải nghiệm ẩm thực tuyệt vời nhất cho khách hàng với phương châm "Nhanh - Ngon - Chuẩn vị".</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Liên kết</h3>
+                <ul>
+                    <li><a href="FastFood.html">Trang chủ</a></li>
+                    <li><a href="about.html">Giới thiệu</a></li>
+                    <li><a href="menu.html">Thực đơn</a></li>
+                    <li><a href="order.html">Đặt món</a></li>
+                    <li><a href="#">Chính sách</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Hỗ trợ</h3>
+                <ul>
+                    <li><a href="#">Câu hỏi thường gặp</a></li>
+                    <li><a href="#">Hướng dẫn đặt hàng</a></li>
+                    <li><a href="#">Chính sách giao hàng</a></li>
+                    <li><a href="#">Chính sách thanh toán</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Liên hệ</h3>
+                <p>99 Tô Hiến Thành , Quận Sơn Trà , TP Đà Nẵng</p>
+                <p>0795-532-041</p>
+                <p><a href="mailto:info@1food.vn">info@1food.vn</a></p>
+                <p>Thứ Hai - Chủ Nhật: <br>8:00 - 22:00</p>
+            </div>
+            <p style="grid-column: 1 / -1; text-align: center;">&copy; 2023 1Food. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="hideModal()">×</button>
+            <h3 id="modal-title" class="modal-title"></h3>
+            <div id="modal-message" class="modal-message"></div>
+            <div class="loading-spinner" id="modal-spinner"></div>
+        </div>
+    </div>
+
+    <script src="contact.js"></script> <!-- Link to external JavaScript file -->
+</body>
+</html>
